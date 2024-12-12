@@ -40,7 +40,11 @@ const Details = () => {
         <h1>Articolo #{id}</h1>
         {article && (
           <div>
-            <img src={article.image_url} alt="immagine articolo" />
+            <img
+              style={{ height: "500px" }}
+              src={article.image_url}
+              alt="immagine articolo"
+            />
             <h2>
               {article.title} - {article.news_site}
             </h2>
