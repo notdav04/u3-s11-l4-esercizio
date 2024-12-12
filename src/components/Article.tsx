@@ -1,4 +1,5 @@
 import { Badge, Card, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 interface ArticleProps {
   obj: {
@@ -8,8 +9,8 @@ interface ArticleProps {
     image_url: string;
     news_site: string;
     summary: string;
-    published_at: Date;
-    updated_at: Date;
+    published_at: string;
+    updated_at: string;
     featured: boolean;
     launches: Launch[];
     events: [];
@@ -22,11 +23,15 @@ interface Launch {
 }
 
 const Article = (props: ArticleProps) => {
+  const navigate = useNavigate();
   return (
     <>
       <Col sm={12} md={6} className="mb-4">
         <Card style={{ height: "35rem" }}>
           <Card.Img
+            onClick={() => {
+              navigate(`/details/${props.obj.id}`);
+            }}
             variant="top"
             src={props.obj.image_url}
             style={{ height: "300px" }}
